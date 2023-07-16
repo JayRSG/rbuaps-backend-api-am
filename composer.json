@@ -1,0 +1,13 @@
+{
+    "name": "am/rbuaps",
+    "description": "Backend for Rfid Based University Administration Payment System",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Arpita Dhar Moni and Tahsin Mim"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    }
+}
