@@ -1,0 +1,99 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "RBUAPS-API",
+    "dateExported": "2023-07-16T21:35:38.187Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "a39d711c-ab38-429e-94f2-78d220c51866",
+            "name": "user",
+            "containerId": "",
+            "created": "2023-07-16T17:34:39.421Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "bed8bdb2-db3f-41fa-9973-c919b9753015",
+            "name": "registrar",
+            "containerId": "",
+            "created": "2023-07-16T17:35:01.645Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "0486dded-22d6-4121-b62d-658b6df21736",
+            "name": "library",
+            "containerId": "",
+            "created": "2023-07-16T17:35:08.093Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "f1550414-7ba3-4ee8-b726-8e9278256e3a",
+            "name": "canteen",
+            "containerId": "",
+            "created": "2023-07-16T17:35:13.365Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "f8b531da-b6e2-45c7-97aa-6d37a1d6432c",
+            "name": "accounts",
+            "containerId": "",
+            "created": "2023-07-16T17:35:19.965Z",
+            "sortNum": 60000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "0a552ed7-b72e-44bd-ab7b-a7c44925fd59",
+            "colId": "e3d35b1c-7382-4c99-bc1e-5d2acd63e5e3",
+            "containerId": "",
+            "name": "login",
+            "url": "http://api.rbuaps.com/logins?u_t=student",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-07-16T17:30:35.669Z",
+            "modified": "2023-07-16T20:14:00.865Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "u_t",
+                    "value": "student",
+                    "isPath": false
+                },
+                {
+                    "name": "u_t",
+                    "value": "admin",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "email",
+                        "value": "admin@email.com"
+                    },
+                    {
+                        "name": "password",
+                        "value": "12345"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "694869c3-e150-4fee-b00b-3c935580db64",
+            "colId": "e3d35b1c-7382-4c99-bc1e-5d2acd63e5e3",
+            "containerId": "",
+            "name": "logout",
+            "url": "http://api.rbuaps.com/logout",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-07-16T17:31:34.957Z",
+            "modified": "2023-07-16T17:32:16.249Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
