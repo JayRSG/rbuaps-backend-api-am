@@ -18,7 +18,7 @@ if (!$user) {
 
 
 
-if ((auth_type() != "admin" && $user['admin_type'] != 2) || (auth_type() != "student")) {
+if ((auth_type() != "admin" && isset($user['admin_type']) && $user['admin_type'] != 2) || (auth_type() != "student")) {
   response(['message' => "Unauthorized"], 401);
   return;
 }

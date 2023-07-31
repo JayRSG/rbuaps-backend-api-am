@@ -107,7 +107,7 @@ try {
     }
   }
   $sql = rtrim($sql, ', ');
-
+  
   $stmt = $conn->prepare($sql);
   $result = $stmt->execute();
 
