@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "RBUAPS-API",
-    "dateExported": "2023-07-16T21:49:20.820Z",
+    "dateExported": "2023-07-31T17:46:18.184Z",
     "version": "1.1",
     "folders": [
         {
@@ -45,23 +45,23 @@
             "_id": "0a552ed7-b72e-44bd-ab7b-a7c44925fd59",
             "colId": "e3d35b1c-7382-4c99-bc1e-5d2acd63e5e3",
             "containerId": "",
-            "name": "login",
-            "url": "http://api.rbuaps.com/logins?u_t=student",
+            "name": "login (type: admin)",
+            "url": "http://api.rbuaps.com/login?u_t=admin",
             "method": "POST",
             "sortNum": 10000,
             "created": "2023-07-16T17:30:35.669Z",
-            "modified": "2023-07-16T20:14:00.865Z",
+            "modified": "2023-07-31T16:58:21.812Z",
             "headers": [],
             "params": [
                 {
                     "name": "u_t",
                     "value": "student",
+                    "isDisabled": true,
                     "isPath": false
                 },
                 {
                     "name": "u_t",
                     "value": "admin",
-                    "isDisabled": true,
                     "isPath": false
                 }
             ],
@@ -71,11 +71,51 @@
                 "form": [
                     {
                         "name": "email",
-                        "value": "admin@email.com"
+                        "value": "cafe@email.com"
                     },
                     {
                         "name": "password",
-                        "value": "12345"
+                        "value": "12345678"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "dad74190-8165-4322-b38f-5254f63b8ddc",
+            "colId": "e3d35b1c-7382-4c99-bc1e-5d2acd63e5e3",
+            "containerId": "",
+            "name": "login (type: student)",
+            "url": "http://api.rbuaps.com/login?u_t=student",
+            "method": "POST",
+            "sortNum": 15000,
+            "created": "2023-07-23T05:58:01.368Z",
+            "modified": "2023-07-23T07:32:46.163Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "u_t",
+                    "value": "student",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "u_t",
+                    "value": "student",
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "email",
+                        "value": "stu1@email.com"
+                    },
+                    {
+                        "name": "password",
+                        "value": "12345678"
                     }
                 ]
             },
@@ -100,6 +140,432 @@
                     {
                         "name": "logout",
                         "value": "true"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "8e6cccf3-b3fd-4f4a-8ad5-2b56708d381d",
+            "colId": "e3d35b1c-7382-4c99-bc1e-5d2acd63e5e3",
+            "containerId": "bed8bdb2-db3f-41fa-9973-c919b9753015",
+            "name": "create_user (type: student)",
+            "url": "http://api.rbuaps.com/admin/create_user",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-07-23T05:49:38.772Z",
+            "modified": "2023-07-30T09:03:38.522Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "first_name",
+                        "value": "Student_1"
+                    },
+                    {
+                        "name": "last_name",
+                        "value": "Stu_Sur"
+                    },
+                    {
+                        "name": "email",
+                        "value": "stu1@email.com"
+                    },
+                    {
+                        "name": "phone",
+                        "value": "01685844525"
+                    },
+                    {
+                        "name": "student_id",
+                        "value": "163202022"
+                    },
+                    {
+                        "name": "rfid",
+                        "value": "156525458563256"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "378704d6-40b4-4cbb-bd5b-9c885fde6648",
+            "colId": "e3d35b1c-7382-4c99-bc1e-5d2acd63e5e3",
+            "containerId": "",
+            "name": "myprofile",
+            "url": "http://api.rbuaps.com/my_profile",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-07-23T08:50:46.485Z",
+            "modified": "2023-07-23T08:52:28.846Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b86ff4f7-2a12-440a-ad85-1dc5b3d88b54",
+            "colId": "e3d35b1c-7382-4c99-bc1e-5d2acd63e5e3",
+            "containerId": "bed8bdb2-db3f-41fa-9973-c919b9753015",
+            "name": "create_user (type: admin)",
+            "url": "http://api.rbuaps.com/admin/create_admin",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-07-23T05:59:39.552Z",
+            "modified": "2023-07-30T09:03:18.708Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "first_name",
+                        "value": "accounts"
+                    },
+                    {
+                        "name": "last_name",
+                        "value": "Surname"
+                    },
+                    {
+                        "name": "email",
+                        "value": "accounts@email.com"
+                    },
+                    {
+                        "name": "phone",
+                        "value": "01854522565"
+                    },
+                    {
+                        "name": "admin_type",
+                        "value": "2"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "e14b107f-a867-4595-b9f5-c2dde7522cb7",
+            "colId": "e3d35b1c-7382-4c99-bc1e-5d2acd63e5e3",
+            "containerId": "bed8bdb2-db3f-41fa-9973-c919b9753015",
+            "name": "card_reissue",
+            "url": "http://api.rbuaps.com/admin/card_reissue",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-07-23T09:04:24.983Z",
+            "modified": "2023-07-30T17:00:55.871Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "user_id",
+                        "value": "1"
+                    },
+                    {
+                        "name": "rfid",
+                        "value": "156525658984"
+                    },
+                    {
+                        "name": "student_id",
+                        "value": "16202025"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "71ae1661-bfc7-40c1-852d-f0a7616a0962",
+            "colId": "e3d35b1c-7382-4c99-bc1e-5d2acd63e5e3",
+            "containerId": "bed8bdb2-db3f-41fa-9973-c919b9753015",
+            "name": "deactivate_user",
+            "url": "http://api.rbuaps.com/admin/deactivate_user",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-07-23T09:06:38.192Z",
+            "modified": "2023-07-23T10:02:03.646Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "email",
+                        "value": ""
+                    },
+                    {
+                        "name": "student_id",
+                        "value": ""
+                    },
+                    {
+                        "name": "password_confirmation",
+                        "value": ""
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "ebb6335c-e32e-4877-a9d1-28e58ccc09c2",
+            "colId": "e3d35b1c-7382-4c99-bc1e-5d2acd63e5e3",
+            "containerId": "bed8bdb2-db3f-41fa-9973-c919b9753015",
+            "name": "get-users",
+            "url": "http://api.rbuaps.com/admin/get_users",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-07-23T11:06:50.027Z",
+            "modified": "2023-07-31T16:30:25.846Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "user_type",
+                        "value": "student"
+                    },
+                    {
+                        "name": "id",
+                        "value": "1"
+                    },
+                    {
+                        "name": "first_name",
+                        "value": "Stu",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "last_name",
+                        "value": "",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "email",
+                        "value": "user1@email.com",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "phone",
+                        "value": "",
+                        "isDisabled": true
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "487150a9-fe29-42fb-8a7a-f77d3cf4a05d",
+            "colId": "e3d35b1c-7382-4c99-bc1e-5d2acd63e5e3",
+            "containerId": "f1550414-7ba3-4ee8-b726-8e9278256e3a",
+            "name": "sell",
+            "url": "http://api.rbuaps.com/canteen/sell",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-07-29T09:27:34.960Z",
+            "modified": "2023-07-31T17:27:07.947Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "items_cart[0][item_id]",
+                        "value": "1"
+                    },
+                    {
+                        "name": "items_cart[0][quantity]",
+                        "value": "10"
+                    },
+                    {
+                        "name": "items_cart[1][item_id]",
+                        "value": "2"
+                    },
+                    {
+                        "name": "items_cart[1][quantity]",
+                        "value": "5"
+                    },
+                    {
+                        "name": "student_id",
+                        "value": "16202025"
+                    },
+                    {
+                        "name": "rfid",
+                        "value": "156525658984"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "ebd19da7-9ecd-48b6-85f3-66543bec946a",
+            "colId": "e3d35b1c-7382-4c99-bc1e-5d2acd63e5e3",
+            "containerId": "f1550414-7ba3-4ee8-b726-8e9278256e3a",
+            "name": "add_item",
+            "url": "http://api.rbuaps.com/canteen/add_item",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2023-07-29T09:55:28.297Z",
+            "modified": "2023-07-29T10:12:30.569Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Shingara"
+                    },
+                    {
+                        "name": "price",
+                        "value": "8"
+                    },
+                    {
+                        "name": "quantity",
+                        "value": "60"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "ea9ab9b7-f16c-4a9d-9c89-57a6afa66396",
+            "colId": "e3d35b1c-7382-4c99-bc1e-5d2acd63e5e3",
+            "containerId": "f8b531da-b6e2-45c7-97aa-6d37a1d6432c",
+            "name": "Recharge_card",
+            "url": "http://api.rbuaps.com/accounts/recharge_card",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2023-07-30T09:04:26.160Z",
+            "modified": "2023-07-31T12:48:53.275Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "student_id",
+                        "value": "162020252"
+                    },
+                    {
+                        "name": "rfid",
+                        "value": "156525658984"
+                    },
+                    {
+                        "name": "recharge_amount",
+                        "value": "2000"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "0c466d51-8414-498c-b7fc-4f4d67e65db8",
+            "colId": "e3d35b1c-7382-4c99-bc1e-5d2acd63e5e3",
+            "containerId": "a39d711c-ab38-429e-94f2-78d220c51866",
+            "name": "Card Status",
+            "url": "http://api.rbuaps.com/user/card_status",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2023-07-30T09:48:06.664Z",
+            "modified": "2023-07-30T10:14:27.414Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "student_id",
+                        "value": "16202025",
+                        "isDisabled": true
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "0439ff67-0c64-4e6d-8d5e-965d5f4314eb",
+            "colId": "e3d35b1c-7382-4c99-bc1e-5d2acd63e5e3",
+            "containerId": "a39d711c-ab38-429e-94f2-78d220c51866",
+            "name": "Recharge History",
+            "url": "http://api.rbuaps.com/user/recharge_history",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2023-07-30T13:54:49.046Z",
+            "modified": "2023-07-30T13:56:49.017Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "2f6f6867-2a60-4c92-9a4a-d96fc1167da5",
+            "colId": "e3d35b1c-7382-4c99-bc1e-5d2acd63e5e3",
+            "containerId": "a39d711c-ab38-429e-94f2-78d220c51866",
+            "name": "Transaction History",
+            "url": "http://api.rbuaps.com/user/transaction_history",
+            "method": "POST",
+            "sortNum": 120000,
+            "created": "2023-07-30T19:22:31.906Z",
+            "modified": "2023-07-30T20:19:17.631Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "transaction_desc_id",
+                        "value": "1",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "from_date",
+                        "value": "2023-01-01"
+                    },
+                    {
+                        "name": "to_date",
+                        "value": "2023-07-01"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "bef2099d-a6fa-461e-a62a-b5a69a0d6eb7",
+            "colId": "e3d35b1c-7382-4c99-bc1e-5d2acd63e5e3",
+            "containerId": "f8b531da-b6e2-45c7-97aa-6d37a1d6432c",
+            "name": "Tuitions Payments",
+            "url": "http://api.rbuaps.com/accounts/tuition_payments",
+            "method": "POST",
+            "sortNum": 130000,
+            "created": "2023-07-31T10:03:27.923Z",
+            "modified": "2023-07-31T11:37:59.634Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "student_id",
+                        "value": "162020253"
+                    },
+                    {
+                        "name": "rfid",
+                        "value": "156525658984"
+                    },
+                    {
+                        "name": "amount",
+                        "value": "300"
+                    },
+                    {
+                        "name": "transaction_desc_id",
+                        "value": "1"
                     }
                 ]
             },
