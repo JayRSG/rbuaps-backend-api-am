@@ -2,10 +2,10 @@
 function login_validator($data, $user_type)
 {
   $expected_keys = ['email', 'password'];
-  if(expect_keys($data, $expected_keys)){
-    if($user_type == "admin" || $user_type == "student"){
+  if (expect_keys($data, $expected_keys)) {
+    if ($user_type == "admin" || $user_type == "student") {
       return true;
-    }else{
+    } else {
       return false;
     }
   }
@@ -36,7 +36,12 @@ try {
   $email = $_POST['email'] ?? null;
   $password = $_POST['password'] ?? null;
 
-  $sql = "SELECT * FROM $user_type WHERE email = :email LIMIT 1";
+  if ($user_type == "admin") {
+    $sql = "SELECT *, admin_type.admin_type_name as type FROM $user_type INNER JOIN admin_type on admin_type = admin_type.id  WHERE email = :email LIMIT 1";
+  } else {
+    $sql = "SELECT *, 'student' as type  FROM $user_type WHERE email = :email LIMIT 1";
+  }
+
   $stmt = $conn->prepare($sql);
 
   if ($email) {

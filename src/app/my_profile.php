@@ -12,7 +12,7 @@ if (!$user) {
 
 
 if ($user) {
-  $keys_to_remove = ['password', 'admin_type', 'active'];
+  $keys_to_remove = ['password', 'active'];
   $my_profile = array();
 
   foreach ($user as $key => $value) {
