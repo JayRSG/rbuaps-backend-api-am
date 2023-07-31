@@ -44,6 +44,20 @@ $routes = [
   "/"                                 =>       app . "/home.php",
   "/login"                            =>       app . "/login.php",
   "/logout"                           =>       app . "/logout.php",
+  "/my_profile"                       =>       app . "/my_profile.php",
+  "/admin/get_users"                  =>       app . "/admin/registrar/get_users.php",
+  "/admin/create_admin"               =>       app . "/admin/registrar/create_admin.php",
+  "/admin/create_student"             =>       app . "/admin/registrar/create_student.php",
+  "/admin/card_reissue"               =>       app . "/admin/registrar/issue_rfid_card.php",
+  "/admin/deactivate_user"            =>       app . "/admin/registrar/deactivate_user.php",
+  "/accounts/recharge_card"           =>       app . "/admin/accounts/recharge_card.php",
+  "/accounts/tuition_payments"        =>       app . "/admin/accounts/tuition_payments.php",
+  "/canteen/add_item"                 =>       app . "/admin/canteen/add_item.php",
+  "/canteen/sell"                     =>       app . "/admin/canteen/sell.php",
+  "/user/card_status"                 =>       app . "/user/card_status.php",
+  "/user/recharge_history"            =>       app . "/user/recharge_history.php",
+  "/user/transaction_history"         =>       app . "/user/transaction_history.php",
+
 ];
 
 // Check if the requested route exists in the routes array

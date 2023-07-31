@@ -1,10 +1,13 @@
 <?php
 function login_validator($data, $user_type)
 {
-  if (isset($data['email']) && isset($data['password']) && ($user_type == "admin" || $user_type == "student")) {
-    return true;
-  } else {
-    return false;
+  $expected_keys = ['email', 'password'];
+  if(expect_keys($data, $expected_keys)){
+    if($user_type == "admin" || $user_type == "student"){
+      return true;
+    }else{
+      return false;
+    }
   }
 }
 
@@ -46,6 +49,12 @@ try {
 
   if ($user) {
     // User found, check the password
+
+    if ($user['active'] == 0) {
+      response(['message' => "Access Denied"], 401);
+      return;
+    }
+
     if (password_verify($password, $user['password'])) {
       // Password or fingerprint matches, allow login
       $_SESSION['auth'] = $user;

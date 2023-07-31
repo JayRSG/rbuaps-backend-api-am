@@ -83,3 +83,18 @@ function response($response, $code = 200, $headers = null)
     echo json_encode($response);
   }
 }
+
+function expect_keys($data, $expected_keys)
+{
+  if ($data) {
+    foreach ($data as $key => $value) {
+      if (!in_array($key, $expected_keys) && empty($value)) {
+        return false;
+      }
+    }
+  } else {
+    return false;
+  }
+
+  return true;
+}
