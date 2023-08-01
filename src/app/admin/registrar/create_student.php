@@ -2,7 +2,7 @@
 
 function validate($data)
 {
-  $expected_keys = ['first_name', 'last_name', 'email', 'password', 'phone', 'father_name', 'mother_name', 'guardian_phone', 'student_id', 'rfid'];
+  $expected_keys = ['first_name', 'last_name', 'email', 'password', 'phone', 'fathers_name', 'mothers_name', 'guardian_phone', 'student_id', 'rfid'];
 
   return expect_keys($data, $expected_keys);
 }
@@ -28,15 +28,16 @@ try {
   $email = $_POST['email'];
   $password = password_hash('12345678', PASSWORD_DEFAULT);
   $phone = $_POST['phone'];
-  $father_name = $_POST['father_name'];
-  $mother_name = $_POST['mother_name'];
+  $fathers_name = $_POST['fathers_name'];
+  $mothers_name = $_POST['mothers_name'];
   $guardian_phone = $_POST['guardian_phone'];
   $student_id = $_POST['student_id'];
   $rfid = $_POST['rfid'];
 
   $params = [];
 
-  $sql = "INSERT INTO $user_type (first_name, last_name, email, password, phone, father_name, mother_name, guardian_phone, student_id, rfid) VALUES(:first_name, :last_name, :email, :password, :phone, :father_name, :mother_name, :guardian_phone, :student_id, :rfid)";
+  $sql = "INSERT INTO student (first_name, last_name, email, password, phone, fathers_name, mothers_name, guardian_phone, student_id, rfid) VALUES(:first_name, :last_name, :email, :password, :phone, :fathers_name, :mothers_name, :guardian_phone, :student_id, :rfid)";
+
 
   $stmt = $conn->prepare($sql);
 
@@ -46,8 +47,8 @@ try {
     ":email" => $email,
     ":password" => $password,
     ":phone" => $phone,
-    ":father_name" => $father_name,
-    ":mother_name" => $mother_name,
+    ":fathers_name" => $fathers_name,
+    ":mothers_name" => $mothers_name,
     ":guardian_phone" => $guardian_phone,
     ":student_id" => $student_id,
     ":rfid" => $rfid,

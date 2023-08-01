@@ -3,7 +3,7 @@
 function validator($data)
 {
   $expected_keys = ['user_type', 'id'];
-  
+
   return expect_keys($data, $expected_keys);
 }
 
@@ -46,10 +46,11 @@ try {
       'email',
       'phone',
       'guardian_phone',
-      'student_id',
+      'student.student_id',
       'active',
-      'created_at',
-      'updated_at',
+      'student.created_at',
+      'student.updated_at',
+      'card_status.balance'
     ]
     : ($user_type == "admin"  ?
       [
@@ -79,7 +80,9 @@ try {
   if ($user_type == "admin") {
     $sql .= "INNER JOIN admin_type on admin_type.id = $user_type.admin_type WHERE";
   } else {
-    $sql  .= "WHERE ";
+    $sql  .= "
+    LEFT JOIN card_status on student.id = card_status.student_id
+    WHERE ";
   }
 
   if ($id) {
@@ -119,17 +122,18 @@ try {
   }
 
   $result = $stmt->execute();
+  $user = null;
 
-  if ($result && $stmt->rowCount() > 0) {
-    if ($stmt->rowCount() == 1) {
-      $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    } else if ($stmt->rowCount() > 1) {
-      $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
+  if ($result && $stmt->rowCount() == 1) {
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+  } else if ($result && $stmt->rowCount() > 0) {
+    $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
 
+  if ($user) {
     response(['data' => $user], 200);
   } else {
-    response(['message' => "Not Found"], 404);
+    response(['message' => "Not Found", $sql], 404);
   }
 } catch (PDOException $e) {
   response(['message' => $e->getMessage()], 500);
