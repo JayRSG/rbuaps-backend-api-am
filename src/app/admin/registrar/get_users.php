@@ -86,7 +86,13 @@ try {
   }
 
   if ($id) {
-    $sql .= " $user_type.id = :id AND";
+    if ($user_type = "student") {
+      $sql .= " $user_type.student_id = :id AND";
+    } else {
+      if ($user_type == "admin") {
+        $sql .= " $user_type.id = :id AND";
+      }
+    }
     $params[":id"] = $id;
   }
 
