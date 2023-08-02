@@ -43,7 +43,7 @@ try {
   }
 
   if ($from_date != null && $to_date != null) {
-    $sql .= " payment_date BETWEEN :from_date AND :to_date AND";
+    $sql .= " payment_date BETWEEN :from_date AND DATE_FORMAT(:to_date, '%Y-%m-%d 23:59:59') AND";
     $param[':from_date'] = $from_date;
     $param[':to_date'] = $to_date;
   }

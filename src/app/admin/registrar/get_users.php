@@ -12,10 +12,13 @@ if (!$user) {
   response(['message' => 'Unauthenticated'], 401);
   return;
 }
-if (!checkUserType('admin')) {
-  response(['message' => 'Unauthorized Access'], 401);
-  return;
-}
+
+// if (!checkUserType('admin')) {
+//   response(['message' => 'Unauthorized Access'], 401);
+//   return;
+// }
+
+
 
 // response(validator($_POST) ? "yes" : "no");
 // return;
@@ -27,8 +30,8 @@ if (!validator($_POST)) {
 }
 
 try {
-  $user_type = $_POST['user_type'] ?? null;
-  $id = $_POST['id'] ?? null;
+  $user_type =  $_POST['user_type'] ?? null;
+  $id = auth_type() == "student" ? $user['student_id'] : $_POST['id'];
   $email = $_POST['email'] ?? null;
   $phone = $_POST['phone'] ?? null;
   $first_name = $_POST['first_name'] ?? null;
@@ -139,7 +142,7 @@ try {
   if ($user) {
     response(['data' => $user], 200);
   } else {
-    response(['message' => "Not Found", $sql], 404);
+    response(['message' => "Not Found"], 404);
   }
 } catch (PDOException $e) {
   response(['message' => $e->getMessage()], 500);
