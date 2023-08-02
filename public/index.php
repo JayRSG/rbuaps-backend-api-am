@@ -54,6 +54,7 @@ $routes = [
   "/admin/deactivate_user"            =>       app . "/admin/registrar/deactivate_user.php",
   "/accounts/recharge_card"           =>       app . "/admin/accounts/recharge_card.php",
   "/accounts/tuition_payments"        =>       app . "/admin/accounts/tuition_payments.php",
+  "/accounts/transaction_history"     =>       app . "/admin/accounts/transaction_history.php",
   "/canteen/add_item"                 =>       app . "/admin/canteen/add_item.php",
   "/canteen/sell"                     =>       app . "/admin/canteen/sell.php",
   "/user/card_status"                 =>       app . "/user/card_status.php",
