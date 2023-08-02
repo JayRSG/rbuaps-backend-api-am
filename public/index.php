@@ -45,6 +45,7 @@ $routes = [
   "/login"                            =>       app . "/login.php",
   "/logout"                           =>       app . "/logout.php",
   "/my_profile"                       =>       app . "/my_profile.php",
+  "/admin/transaction_types"          =>       app . "/admin/resolve_transaction_types.php",
   "/admin/get_users"                  =>       app . "/admin/registrar/get_users.php",
   "/admin/admin_types"                =>       app . "/admin/registrar/admin_types.php",
   "/admin/create_admin"               =>       app . "/admin/registrar/create_admin.php",
