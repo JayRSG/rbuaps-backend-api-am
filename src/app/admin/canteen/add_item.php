@@ -23,15 +23,15 @@ if (!checkUserType("admin") || $user['admin_type'] != 4) { //canteen salesperson
 }
 
 try {
-  $name = $_POST['name'] ?? null;
-  $price = $_POST['price'] ?? 0;
-  $quantity = $_POST['quantity'] ?? 0;
+  $name = $_POST["name"] ?? null;
+  $price = $_POST["price"] ?? 0;
+  $quantity = $_POST["quantity"] ?? 0;
 
-  $sql = "INSERT INTO canteen_prods (name, price, quantity) VALUES(:name, :price, :quantity)";
+  $sql = "INSERT INTO canteen_prods (name, price, quantity) VALUES(:item_name, :price, :quantity)";
 
   $stmt = $conn->prepare($sql);
 
-  $stmt->bindParam(":name", $name);
+  $stmt->bindParam(":item_name", $name);
   $stmt->bindParam(":price", $price);
   $stmt->bindParam(":quantity", $quantity);
 
