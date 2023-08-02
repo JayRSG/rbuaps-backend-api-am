@@ -31,7 +31,12 @@ if (!validate($_GET)) {
 try {
   $admin_type_id = $_GET['admin_type_id'];
 
-  $sql = "SELECT * from transaction_desc INNER JOIN counter_tbl on transaction_desc.counter_id = counter_tbl.id WHERE admin_type_id = :admin_type_id";
+  // $sql = "SELECT * from transaction_desc  
+  // LEFT JOIN counter_tbl on transaction_desc.counter_id = counter_tbl.id WHERE admin_type_id = :admin_type_id";
+  $sql = "SELECT transaction_desc.id , transaction_description, counter_id, admin_type_id, counter_name
+  FROM transaction_desc
+  LEFT JOIN counter_tbl ON transaction_desc.counter_id = counter_tbl.id
+  WHERE admin_type_id = :admin_type_id;";
 
   $stmt = $conn->prepare($sql);
   $stmt->bindParam(":admin_type_id", $admin_type_id);
