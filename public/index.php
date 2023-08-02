@@ -12,7 +12,7 @@ require_once __DIR__ . "../../src/lib/utils.php";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
   // Enable CORS
   response("", 204, [
-    'Access-Control-Allow-Origin' => 'http://libraryman.com',
+    'Access-Control-Allow-Origin' => 'http://rbuaps.com:3000',
     'Access-Control-Allow-Methods' => 'GET, POST, PUT, DELETE',
     'Access-Control-Allow-Headers' => 'Content-Type',
     'Access-Control-Allow-Credentials' => 'true'

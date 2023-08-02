@@ -66,7 +66,7 @@ function checkDeleteMethod()
 function response($response, $code = 200, $headers = null)
 {
   $headers = [
-    'Access-Control-Allow-Origin' => 'http://rbuaps.com:8000',
+    'Access-Control-Allow-Origin' => 'http://rbuaps.com:3000',
     'Access-Control-Allow-Methods' => 'GET, POST, PUT, DELETE, OPTIONS',
     'Access-Control-Allow-Headers' => 'Content-Type',
     'Access-Control-Allow-Credentials' => 'true'
