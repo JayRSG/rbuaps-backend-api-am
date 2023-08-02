@@ -12,7 +12,7 @@ if (!$user) {
   response(['message' => 'Unauthenticated'], 401);
   return;
 }
-if (!checkUserType('admin') || $user['admin_type'] != 1) {
+if (!checkUserType('admin')) {
   response(['message' => 'Unauthorized Access'], 401);
   return;
 }
