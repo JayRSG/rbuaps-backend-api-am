@@ -57,6 +57,7 @@ $routes = [
   "/accounts/transaction_history"     =>       app . "/admin/accounts/transaction_history.php",
   "/canteen/add_item"                 =>       app . "/admin/canteen/add_item.php",
   "/canteen/sell"                     =>       app . "/admin/canteen/sell.php",
+  "/canteen/get_items"                =>       app . "/admin/canteen/get_items.php",
   "/user/card_status"                 =>       app . "/user/card_status.php",
   "/user/recharge_history"            =>       app . "/user/recharge_history.php",
   "/user/transaction_history"         =>       app . "/user/transaction_history.php",

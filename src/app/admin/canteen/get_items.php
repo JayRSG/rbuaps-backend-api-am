@@ -2,7 +2,7 @@
 
 function validate($data)
 {
-  if (empty($data['id']) && empty($data['all'])) {
+  if (empty($data['search_term']) && empty($data['all'])) {
     return false;
   } else {
     return true;
@@ -25,25 +25,28 @@ if (!checkUserType("admin") || $user['admin_type'] != 4) {
   return;
 }
 
-if (!validate($_POST)) {
+if (!validate($_GET)) {
   response(['message' => 'Bad Request'], 400);
   return;
 }
 
 try {
-  $all = $_POST['all'] ?? null;
-  $id = $_POST['id'] ?? null;
+  $all = $_GET['all'] ?? null;
+  $search_term = $_GET['search_term'] ?? null;
 
   $sql = "";
 
   if ($all) {
     $sql = "SELECT * from canteen_prods";
-  } else if ($id > 0) {
-    $sql = "SELECT * from canteen_prods WHERE id = :id";
+  } else if (!empty($search_term)) {
+    $sql = "SELECT * from canteen_prods WHERE name LIKE  :search_term ";
   }
 
   $stmt = $conn->prepare($sql);
-  $stmt->bindParam(":id", $id);
+  if ($search_term) {
+    $stmt->bindValue(":search_term", "%" . $search_term . "%");
+  }
+
   $result = $stmt->execute();
 
 
