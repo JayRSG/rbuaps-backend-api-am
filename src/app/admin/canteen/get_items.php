@@ -2,7 +2,7 @@
 
 function validate($data)
 {
-  if (empty($data['search_term']) && empty($data['all'])) {
+  if (!isset($data['search_term']) && !isset($data['all']) && !isset($data['id'])) {
     return false;
   } else {
     return true;
@@ -31,20 +31,32 @@ if (!validate($_GET)) {
 }
 
 try {
-  $all = $_GET['all'] ?? null;
+  $all = !empty($_GET['all']) ? $_GET['all'] :  null;
   $search_term = $_GET['search_term'] ?? null;
+  $id = !empty($_GET['id']) ? $_GET['id'] : null;
 
   $sql = "";
 
-  if ($all) {
+  if ($all || $id) {
     $sql = "SELECT * from canteen_prods";
   } else if (!empty($search_term)) {
-    $sql = "SELECT * from canteen_prods WHERE name LIKE  :search_term ";
+    $sql = "SELECT * from canteen_prods WHERE name LIKE  :search_term OR";
   }
 
+  if ($id) {
+    $sql .= " WHERE id = :id";
+  }
+
+  $sql = rtrim($sql, " OR");
+
   $stmt = $conn->prepare($sql);
+
   if ($search_term) {
     $stmt->bindValue(":search_term", "%" . $search_term . "%");
+  }
+
+  if ($id) {
+    $stmt->bindValue(":id", $id);
   }
 
   $result = $stmt->execute();
@@ -61,5 +73,5 @@ try {
     response(['message' => 'Not Found'], 404);
   }
 } catch (PDOException $e) {
-  response(['message' => $e->getMessage()], 500);
+  response(['message' => $e->getMessage(), $sql], 500);
 }
